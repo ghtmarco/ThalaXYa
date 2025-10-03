@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EB3C53B2E8F88D8000BE020 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4EB3C53A2E8F88D8000BE020 /* README.md */; };
 		4ECBC6FC2E8E7B2600C3C5F9 /* Fish+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECBC6F62E8E7B2600C3C5F9 /* Fish+CoreDataClass.swift */; };
 		4ECBC6FD2E8E7B2600C3C5F9 /* Fish+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECBC6F72E8E7B2600C3C5F9 /* Fish+CoreDataProperties.swift */; };
 		4ECBC6FE2E8E7B2600C3C5F9 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECBC6F92E8E7B2600C3C5F9 /* Transaction+CoreDataProperties.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		4E2577A32E8B9B3B006897E9 /* ThalaXYa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThalaXYa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EB3C53A2E8F88D8000BE020 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4ECBC6F62E8E7B2600C3C5F9 /* Fish+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fish+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4ECBC6F72E8E7B2600C3C5F9 /* Fish+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fish+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4ECBC6F82E8E7B2600C3C5F9 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				4ECBC6FB2E8E7B2600C3C5F9 /* User+CoreDataProperties.swift */,
 				4E2577A52E8B9B3B006897E9 /* ThalaXYa */,
 				4E2577A42E8B9B3B006897E9 /* Products */,
+				4EB3C53A2E8F88D8000BE020 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB3C53B2E8F88D8000BE020 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
