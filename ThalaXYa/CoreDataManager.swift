@@ -105,4 +105,48 @@ class CoreDataManager {
         context.delete(fish)
         return saveContext()
     }
+    
+    func createTransaction(fishName: String, fishWeight: Double, fishPrice: Double, quantity: Int, totalPrice: Double, buyer: NSManagedObject) -> Bool {
+        let transaction = NSEntityDescription.insertNewObject(forEntityName: "Transaction", into: context)
+        transaction.setValue(UUID(), forKey: "id")
+        transaction.setValue(fishName, forKey: "fishName")
+        transaction.setValue(fishWeight, forKey: "fishWeight")
+        transaction.setValue(fishPrice, forKey: "fishPrice")
+        transaction.setValue(Int16(quantity), forKey: "quantity")
+        transaction.setValue(totalPrice, forKey: "totalPrice")
+        transaction.setValue(Date(), forKey: "transactionDate")
+        transaction.setValue(buyer, forKey: "buyer")
+        
+        return saveContext()
+    }
+
+    func getAllTransactions() -> [NSManagedObject] {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Transaction")
+        request.sortDescriptors = [NSSortDescriptor(key: "transactionDate", ascending: false)]
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Error fetching transactions: \(error)")
+            return []
+        }
+    }
+
+    func getTransactionsForUser(user: NSManagedObject) -> [NSManagedObject] {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Transaction")
+        request.predicate = NSPredicate(format: "buyer == %@", user)
+        request.sortDescriptors = [NSSortDescriptor(key: "transactionDate", ascending: false)]
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Error fetching user transactions: \(error)")
+            return []
+        }
+    }
+
+    func updateUserBalance(user: NSManagedObject, newBalance: Double) -> Bool {
+        user.setValue(newBalance, forKey: "balance")
+        return saveContext()
+    }
 }
