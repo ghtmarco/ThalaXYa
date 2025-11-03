@@ -12,6 +12,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginLabel: UILabel!
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         
@@ -51,13 +52,26 @@ class RegisterViewController: UIViewController {
         
     }
     
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLoginLabel()
+    }
+    
+    func setupLoginLabel() {
+        loginLabel.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(loginLabelTapped))
+        loginLabel.addGestureRecognizer(tap)
+    }
+    
+    @objc func loginLabelTapped() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        if let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true, completion: nil)
+            } else {
+                print("⚠️ LoginViewController not found in Storyboard")
+            }
     }
     
     func showAlert(_ message: String) {
