@@ -12,9 +12,17 @@ class AdminFishCell: UICollectionViewCell {
     
     @IBOutlet weak var fishImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var onEditTapped: (() -> Void)?
     var onDeleteTapped: (() -> Void)?
+    
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter
+    }()
     
     func configure(with fish: NSManagedObject) {
         if let nameLabel = nameLabel {
@@ -27,6 +35,17 @@ class AdminFishCell: UICollectionViewCell {
             } else {
                 fishImageView.image = UIImage(systemName: "photo")
             }
+            fishImageView.contentMode = .scaleAspectFill
+            fishImageView.clipsToBounds = true
+            fishImageView.layer.cornerRadius = 8
+        }
+        
+        if let dateLabel = dateLabel {
+            if let dateAdded = fish.value(forKey: "dateAdded") as? Date {
+                dateLabel.text = dateFormatter.string(from: dateAdded)
+            } else {
+                dateLabel.text = "-"
+            }
         }
     }
     
@@ -37,5 +56,4 @@ class AdminFishCell: UICollectionViewCell {
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
         onDeleteTapped?()
     }
-    
 }

@@ -99,6 +99,7 @@ class CoreDataManager {
         fish.setValue(weight, forKey: "weight")
         fish.setValue(price, forKey: "price")
         fish.setValue(stock, forKey: "stock")
+        
         fish.setValue(Date(), forKey: "dateAdded")
         
         if let data = imageData {
@@ -166,10 +167,12 @@ class CoreDataManager {
 
     func countFishSoldToday() -> Int {
         let request = NSFetchRequest<NSManagedObject>(entityName: "Transaction")
+        
         let calendar = Calendar.current
         let now = Date()
         let startOfDay = calendar.startOfDay(for: now)
         guard let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) else { return 0 }
+        
         request.predicate = NSPredicate(format: "transactionDate >= %@ AND transactionDate < %@", startOfDay as NSDate, endOfDay as NSDate)
         
         do {

@@ -13,11 +13,12 @@ class AdminHomeViewController: UIViewController, UICollectionViewDelegate, UICol
     @IBOutlet weak var collectionView: UICollectionView!
     
     var fishList: [NSManagedObject] = []
+    var selectedFish: NSManagedObject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard collectionView != nil else {
-            print("⚠️ collectionView is not connected in the storyboard for AdminHomeViewController")
             return
         }
         
@@ -38,8 +39,8 @@ class AdminHomeViewController: UIViewController, UICollectionViewDelegate, UICol
         do {
             fishList = try managedContext.fetch(fetchRequest)
             collectionView.reloadData()
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+        } catch {
+            print("Could not fetch data")
         }
     }
 
@@ -48,31 +49,28 @@ class AdminHomeViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FishCell", for: indexPath) as? AdminFishCell else {
-                print("Unable to dequeue AdminFishCell")
-                return UICollectionViewCell()
-            }
-            
-            let fish = fishList[indexPath.row]
-            cell.configure(with: fish)
-            
-            // 3. Logika Edit
-            cell.onEditTapped = { [weak self] in
-                self?.navigateToEdit(fish: fish)
-            }
-            
-            // 4. Logika Delete
-            cell.onDeleteTapped = { [weak self] in
-                let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-                    self?.deleteFish(fish: fish)
-                }))
-                self?.present(alert, animated: true)
-            }
-            
-            return cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FishCell", for: indexPath) as? AdminFishCell else {
+            return UICollectionViewCell()
         }
+        
+        let fish = fishList[indexPath.row]
+        cell.configure(with: fish)
+        
+        cell.onEditTapped = { [weak self] in
+            self?.navigateToEdit(fish: fish)
+        }
+        
+        cell.onDeleteTapped = { [weak self] in
+            let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                self?.deleteFish(fish: fish)
+            }))
+            self?.present(alert, animated: true)
+        }
+        
+        return cell
+    }
     
     @IBAction func addButton(_ sender: UIButton) {
         navigateToAdd()
@@ -86,9 +84,9 @@ class AdminHomeViewController: UIViewController, UICollectionViewDelegate, UICol
         
         do {
             try managedContext.save()
-            fetchFishData() // Refresh data setelah hapus
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+            fetchFishData()
+        } catch {
+            print("Could not save deletion")
         }
     }
     
