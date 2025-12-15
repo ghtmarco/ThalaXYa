@@ -43,15 +43,23 @@ class FishListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FishCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FishCell", for: indexPath) as? UITableViewCell else {
+            print("Unable to dequeue UITableViewCell")
+            return UITableViewCell()
+        }
         
         let fish = fishList[indexPath.row]
         let name = fish.value(forKey: "name") as? String ?? "Unknown"
         let weight = fish.value(forKey: "weight") as? Double ?? 0.0
         let price = fish.value(forKey: "price") as? Double ?? 0.0
         
-        cell.textLabel?.text = "\(name) - \(weight)kg"
-        cell.detailTextLabel?.text = String(format: "$%.2f", price)
+        if let textLabel = cell.textLabel {
+            textLabel.text = "\(name) - \(weight)kg"
+        }
+        
+        if let detailTextLabel = cell.detailTextLabel {
+            detailTextLabel.text = String(format: "$%.2f", price)
+        }
         
         return cell
     }

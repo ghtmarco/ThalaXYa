@@ -51,24 +51,29 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         
-        // Validasi input Stock (Integer)
         guard let stockText = stockTextField.text, let stock = Int(stockText), stock >= 0 else {
             showAlert("Please enter a valid stock amount")
             return
         }
         
-        let imageData = fishImageView.image?.jpegData(compressionQuality: 0.8)
+        // Kompresi gambar agar tidak terlalu berat di database
+        let imageData = fishImageView.image?.jpegData(compressionQuality: 0.5)
         let manager = CoreDataManager.shared
         
+        // LOGIKA SAVE / UPDATE
         if let fish = fishToEdit {
+            // Mode EDIT
             if manager.updateFish(fish: fish, name: name, weight: weight, price: price, stock: stock, imageData: imageData) {
-                navigationController?.popViewController(animated: true)
+                // PENTING: Gunakan dismiss karena halaman ini dipanggil pakai 'present'
+                dismiss(animated: true, completion: nil)
             } else {
                 showAlert("Failed to update fish")
             }
         } else {
+            // Mode ADD
             if manager.createFish(name: name, weight: weight, price: price, stock: stock, imageData: imageData) {
-                navigationController?.popViewController(animated: true)
+                // PENTING: Gunakan dismiss karena halaman ini dipanggil pakai 'present'
+                dismiss(animated: true, completion: nil)
             } else {
                 showAlert("Failed to add fish")
             }
@@ -81,6 +86,11 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
         
         setupImageView()
         
+        guard nameTextField != nil, weightTextField != nil, priceTextField != nil, stockTextField != nil, fishImageView != nil else {
+            print("⚠️ One or more outlets are not connected in the storyboard for AddEditFishViewController")
+            return
+        }
+        
         if let fish = fishToEdit {
             nameTextField.text = fish.value(forKey: "name") as? String
             
@@ -90,8 +100,6 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
             if let price = fish.value(forKey: "price") as? Double {
                 priceTextField.text = String(price)
             }
-            
-            // Ambil data stock dari database
             if let stock = fish.value(forKey: "stock") as? Int {
                 stockTextField.text = String(stock)
             } else {
@@ -109,10 +117,11 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
         fishImageView.layer.borderWidth = 1
         fishImageView.layer.borderColor = UIColor.lightGray.cgColor
         fishImageView.clipsToBounds = true
+        fishImageView.contentMode = .scaleAspectFill // Agar gambar rapi
     }
     
     func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }

@@ -35,15 +35,17 @@ class LoginViewController: UIViewController {
         if let user = manager.loginUser(email: email, password: password) {
             let role = user.value(forKey: "role") as? String ?? "buyer"
             
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
             if role == "admin" {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let adminVC = storyboard.instantiateViewController(withIdentifier: "AdminHomeViewController") as? AdminHomeViewController {
-                    navigationController?.pushViewController(adminVC, animated: true)
+                    adminVC.modalPresentationStyle = .fullScreen
+                    present(adminVC, animated: true, completion: nil)
                 }
             } else {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let buyerVC = storyboard.instantiateViewController(withIdentifier: "BuyerHomeViewController") as? BuyerHomeViewController {
-                    navigationController?.pushViewController(buyerVC, animated: true)
+                    buyerVC.modalPresentationStyle = .fullScreen
+                    present(buyerVC, animated: true, completion: nil)
                 }
             }
         } else {
@@ -59,6 +61,10 @@ class LoginViewController: UIViewController {
     }
     
     func setupRegisterLabel() {
+        guard let registerLabel = registerLabel else {
+            print("⚠️ registerLabel is not connected in the storyboard")
+            return
+        }
         registerLabel.isUserInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(registerLabelTapped))
             registerLabel.addGestureRecognizer(tap)

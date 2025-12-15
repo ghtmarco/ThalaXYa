@@ -29,6 +29,10 @@ class BuyerHomeViewController: UIViewController {
     }
 
     func updateBalanceDisplay() {
+        guard let balanceLabel = balanceLabel else {
+            print("⚠️ balanceLabel is not connected in the storyboard for BuyerHomeViewController")
+            return
+        }
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let context = appDelegate.persistentContainer.viewContext
             let request = NSFetchRequest<NSManagedObject>(entityName: "User")

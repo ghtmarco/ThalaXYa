@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -115,7 +115,7 @@
             <objects>
                 <viewController storyboardIdentifier="AddEditFishViewController" id="JFK-ON-L10" customClass="AddEditFishViewController" customModule="ThalaXYa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kxu-fk-Px7">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAs-HI-DAE">
@@ -580,7 +580,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdminFishCell" id="e9M-L0-jR6" customClass="AdminFishCell" customModule="ThalaXYa" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FishCell" id="e9M-L0-jR6" customClass="AdminFishCell" customModule="ThalaXYa" customModuleProvider="target">
                                         <rect key="frame" x="7" y="0.0" width="151" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fMd-wn-82u">
@@ -591,26 +591,6 @@
                                                     <rect key="frame" x="4" y="8" width="143" height="83"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJa-qC-RYP">
-                                                    <rect key="frame" x="8" y="153" width="45" height="13"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="filled">
-                                                        <attributedString key="attributedTitle">
-                                                            <fragment content="Add">
-                                                                <attributes>
-                                                                    <font key="NSFont" size="11" name="ArialMT"/>
-                                                                    <font key="NSOriginalFont" size="12" name="Helvetica"/>
-                                                                </attributes>
-                                                            </fragment>
-                                                        </attributedString>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="Add:" destination="aAe-jO-34w" eventType="touchUpInside" id="4Ml-Uu-EM4"/>
-                                                        <action selector="Add:" destination="e9M-L0-jR6" eventType="touchUpInside" id="DZs-Yj-4QK"/>
-                                                        <action selector="logoutButtonTapped:" destination="aAe-jO-34w" eventType="touchUpInside" id="y9c-Y6-MMO"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ikan Tuna" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndz-e7-POl">
                                                     <rect key="frame" x="8" y="96" width="62" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -633,9 +613,7 @@
                                                         </attributedString>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="Add:" destination="aAe-jO-34w" eventType="touchUpInside" id="V5s-EZ-Ls4"/>
                                                         <action selector="editButtonTapped:" destination="e9M-L0-jR6" eventType="touchUpInside" id="uDn-FS-T2b"/>
-                                                        <action selector="logoutButtonTapped:" destination="aAe-jO-34w" eventType="touchUpInside" id="FXR-Qv-weF"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1a-lB-26L">
@@ -664,7 +642,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add New FIsh"/>
                                 <connections>
-                                    <action selector="addNewFishTapped:" destination="aAe-jO-34w" eventType="touchUpInside" id="nbO-4i-qL3"/>
+                                    <action selector="addButton:" destination="aAe-jO-34w" eventType="touchUpInside" id="goW-pv-p4O"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -674,6 +652,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yAR-yi-uQ8"/>
                     <connections>
+                        <outlet property="collectionView" destination="66S-I5-Blw" id="c9l-cq-UoB"/>
                         <segue destination="JFK-ON-L10" kind="show" identifier="goToAddEdit" id="hBO-8Z-FkQ"/>
                     </connections>
                 </viewController>
@@ -964,24 +943,6 @@
             </objects>
             <point key="canvasLocation" x="5513.740458015267" y="117.60563380281691"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Ohz-kE-rZy">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vWF-CQ-h6N" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bUW-2c-gPw">
-                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aAe-jO-34w" kind="relationship" relationship="rootViewController" id="Kya-yJ-IF9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7UA-p1-Dj8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2533.5877862595421" y="117.60563380281691"/>
-        </scene>
     </scenes>
     <color key="tintColor" name="Alice Blue"/>
     <resources>
@@ -1009,7 +970,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.2196078431372549" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -55,15 +55,23 @@ class TransactionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as? UITableViewCell else {
+            print("Unable to dequeue UITableViewCell")
+            return UITableViewCell()
+        }
         
         let transaction = transactions[indexPath.row]
         let fishName = transaction.value(forKey: "fishName") as? String ?? "Unknown"
         let quantity = transaction.value(forKey: "quantity") as? Int16 ?? 0
         let totalPrice = transaction.value(forKey: "totalPrice") as? Double ?? 0.0
         
-        cell.textLabel?.text = "\(fishName) x\(quantity)"
-        cell.detailTextLabel?.text = String(format: "$%.2f", totalPrice)
+        if let textLabel = cell.textLabel {
+            textLabel.text = "\(fishName) x\(quantity)"
+        }
+        
+        if let detailTextLabel = cell.detailTextLabel {
+            detailTextLabel.text = String(format: "$%.2f", totalPrice)
+        }
         
         return cell
     }

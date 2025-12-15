@@ -13,6 +13,10 @@ class TopUpViewController: UIViewController {
     @IBOutlet weak var amountTextField: UITextField!
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
+        guard let amountTextField = amountTextField else {
+            print("⚠️ amountTextField is not connected in the storyboard for TopUpViewController")
+            return
+        }
         guard let amountText = amountTextField.text, !amountText.isEmpty else {
             showAlert("Amount cannot be empty")
             return
