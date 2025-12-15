@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -573,21 +573,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="66S-I5-Blw">
-                                <rect key="frame" x="16" y="301" width="165" height="182"/>
+                                <rect key="frame" x="16" y="301" width="360" height="425"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="al4-At-ztv">
-                                    <size key="itemSize" width="161" height="184"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="al4-At-ztv">
+                                    <size key="itemSize" width="163" height="184"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FishCell" id="e9M-L0-jR6" customClass="AdminFishCell" customModule="ThalaXYa" customModuleProvider="target">
-                                        <rect key="frame" x="2" y="0.0" width="161" height="184"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="163" height="184"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fMd-wn-82u">
-                                            <rect key="frame" x="0.0" y="0.0" width="161" height="184"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="163" height="184"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ikan Tuna" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndz-e7-POl">
@@ -598,7 +598,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCX-yN-Prp">
-                                                    <rect key="frame" x="8" y="154" width="45" height="13"/>
+                                                    <rect key="frame" x="8" y="147" width="55" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled">
@@ -615,8 +615,12 @@
                                                         <action selector="editButtonTapped:" destination="e9M-L0-jR6" eventType="touchUpInside" id="uDn-FS-T2b"/>
                                                     </connections>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ikan Tuna" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uLi-7y-B15">
+                                                    <rect key="frame" x="9" y="8" width="143" height="83"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1a-lB-26L">
-                                                    <rect key="frame" x="130" y="-3" width="36" height="35"/>
+                                                    <rect key="frame" x="119" y="137" width="36" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" systemColor="systemRedColor"/>
                                                     <state key="normal" title="Button"/>
@@ -625,13 +629,9 @@
                                                         <action selector="deleteButtonTapped:" destination="e9M-L0-jR6" eventType="touchUpInside" id="9EK-UL-eMi"/>
                                                     </connections>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ikan Tuna" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uLi-7y-B15">
-                                                    <rect key="frame" x="9" y="8" width="143" height="83"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="161" height="184"/>
+                                        <size key="customSize" width="163" height="184"/>
                                         <connections>
                                             <outlet property="fishImageView" destination="uLi-7y-B15" id="2CV-J9-4vZ"/>
                                             <outlet property="nameLabel" destination="Ndz-e7-POl" id="LlN-xf-SI3"/>
@@ -751,14 +751,14 @@
                                 <rect key="frame" x="26" y="263" width="342" height="470"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t4T-6J-bnm">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t4T-6J-bnm">
                                     <size key="itemSize" width="128" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="FishCardCell" id="Fjf-ZR-NOC">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="BuyerFishCell" id="Fjf-ZR-NOC" customClass="BuyerFishCell" customModule="ThalaXYa" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UF5-yl-eGO">
@@ -793,6 +793,12 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="128" height="170"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="8I3-6D-dMs" id="KMG-5A-fio"/>
+                                            <outlet property="fishImageView" destination="Fgo-Uo-dqx" id="RMY-nZ-CDv"/>
+                                            <outlet property="nameLabel" destination="rFC-sA-PkP" id="cXH-uR-aJI"/>
+                                            <outlet property="priceLabel" destination="9Af-dr-pO9" id="5Lr-ev-B8E"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -803,6 +809,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="TZB-VH-Q48"/>
                     <connections>
                         <outlet property="balanceLabel" destination="2Kq-go-Oi6" id="AFT-b8-3f0"/>
+                        <outlet property="collectionView" destination="LNi-ke-qwR" id="0Lo-2K-8zQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sN2-PY-W21" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
