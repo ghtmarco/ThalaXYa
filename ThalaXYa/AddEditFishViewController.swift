@@ -1,10 +1,3 @@
-//
-//  AddEditFishViewController.swift
-//  ThalaXYa
-//
-//  Created by Hush on 30/09/25.
-//
-
 import UIKit
 import CoreData
 
@@ -20,7 +13,6 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = fishToEdit == nil ? "Add Fish" : "Edit Fish"
         
         fishImageView.layer.cornerRadius = 10
         fishImageView.layer.borderWidth = 1
@@ -29,6 +21,7 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
         
         if let fish = fishToEdit {
             nameTextField.text = fish.value(forKey: "name") as? String
+            
             if let weight = fish.value(forKey: "weight") as? Double {
                 weightTextField.text = String(weight)
             }
@@ -40,6 +33,7 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
             } else {
                 stockTextField.text = "0"
             }
+            
             if let imageData = fish.value(forKey: "imageData") as? Data {
                 fishImageView.image = UIImage(data: imageData)
             }
@@ -84,23 +78,30 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
         let imageData = fishImageView.image?.jpegData(compressionQuality: 0.8)
         let manager = CoreDataManager.shared
         
+        var success = false
         if let fish = fishToEdit {
-            if manager.updateFish(fish: fish, name: name, weight: weight, price: price, stock: stock, imageData: imageData) {
-                navigationController?.popViewController(animated: true)
-            } else {
-                showAlert("Failed to update fish")
-            }
+            success = manager.updateFish(fish: fish, name: name, weight: weight, price: price, stock: stock, imageData: imageData)
         } else {
-            if manager.createFish(name: name, weight: weight, price: price, stock: stock, imageData: imageData) {
-                navigationController?.popViewController(animated: true)
-            } else {
-                showAlert("Failed to add fish")
-            }
+            success = manager.createFish(name: name, weight: weight, price: price, stock: stock, imageData: imageData)
+        }
+        
+        if success {
+            goBack()
+        } else {
+            showAlert("Failed to save fish")
         }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        goBack()
+    }
+    
+    func goBack() {
+        if let nav = navigationController {
+            nav.popViewController(animated: true)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     func showAlert(_ message: String) {
