@@ -19,6 +19,7 @@ class BuyerHomeViewController: UIViewController, UICollectionViewDelegate, UICol
         super.viewDidLoad()
         title = "Buyer Dashboard"
         
+        // Cek koneksi collectionView
         if collectionView != nil {
             collectionView.delegate = self
             collectionView.dataSource = self
@@ -33,6 +34,7 @@ class BuyerHomeViewController: UIViewController, UICollectionViewDelegate, UICol
         fetchFishData()
     }
     
+    // MARK: - Fetch Data Logic
     func fetchFishData() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -46,6 +48,7 @@ class BuyerHomeViewController: UIViewController, UICollectionViewDelegate, UICol
         }
     }
 
+    // MARK: - Balance Logic
     func updateBalanceDisplay() {
         guard let balanceLabel = balanceLabel else { return }
         
@@ -71,6 +74,7 @@ class BuyerHomeViewController: UIViewController, UICollectionViewDelegate, UICol
         }
     }
     
+    // MARK: - CollectionView DataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fishList.count
     }
@@ -82,9 +86,54 @@ class BuyerHomeViewController: UIViewController, UICollectionViewDelegate, UICol
         
         let fish = fishList[indexPath.row]
         
-        cell.configure(with: fish)
+        // --- Manual Setup (Agar tidak error 'value has no member configure') ---
+        cell.nameLabel.text = fish.value(forKey: "name") as? String
+        
+        if let price = fish.value(forKey: "price") as? Double {
+            cell.priceLabel.text = "Rp \(Int(price))"
+        }
+        
+        if let imageData = fish.value(forKey: "imageData") as? Data {
+            cell.fishImageView.image = UIImage(data: imageData)
+        } else {
+            cell.fishImageView.image = UIImage(systemName: "photo")
+        }
+        
+        // Optional: Set date label jika ada
+        cell.dateLabel.text = "Available"
         
         return cell
+    }
+    
+    // MARK: - CollectionView Delegate (Action Klik)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("✅ Cell di baris \(indexPath.row) ditekan!") // Debugging
+        
+        // 1. Ambil data ikan yang diklik
+        let selectedFish = fishList[indexPath.row]
+        
+        // 2. Siapkan Detail Page
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: "FishDetailViewController") as? FishDetailViewController {
+            
+            // 3. Kirim Data
+            detailVC.fish = selectedFish
+            
+            // 4. LOGIKA NAVIGASI AMAN (Hybrid)
+            if let navigationController = self.navigationController {
+                // Jika ada Navigation Controller, pakai Push (Geser)
+                navigationController.pushViewController(detailVC, animated: true)
+            } else {
+                // Jika tidak ada (karena login pakai present), pakai Present (Muncul dari bawah)
+                // Opsional: Pakai .pageSheet agar user bisa swipe close
+                detailVC.modalPresentationStyle = .pageSheet
+                present(detailVC, animated: true, completion: nil)
+            }
+        } else {
+            print("❌ Gagal menemukan FishDetailViewController dengan ID tersebut di Storyboard")
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
