@@ -28,7 +28,6 @@ extension User {
 
 }
 
-// MARK: Generated accessors for transactions
 extension User {
 
     @objc(addTransactionsObject:)

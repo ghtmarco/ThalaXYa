@@ -26,12 +26,15 @@ class FishListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadFishData()
-        tableView.reloadData()
     }
-    
+
     func loadFishData() {
         let manager = CoreDataManager.shared
         fishList = manager.getAllFish()
+
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,15 +46,22 @@ class FishListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FishCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FishCell", for: indexPath) as? UITableViewCell else {
+            return UITableViewCell()
+        }
         
         let fish = fishList[indexPath.row]
         let name = fish.value(forKey: "name") as? String ?? "Unknown"
         let weight = fish.value(forKey: "weight") as? Double ?? 0.0
         let price = fish.value(forKey: "price") as? Double ?? 0.0
         
-        cell.textLabel?.text = "\(name) - \(weight)kg"
-        cell.detailTextLabel?.text = String(format: "$%.2f", price)
+        if let textLabel = cell.textLabel {
+            textLabel.text = "\(name) - \(weight)kg"
+        }
+        
+        if let detailTextLabel = cell.detailTextLabel {
+            detailTextLabel.text = String(format: "$%.2f", price)
+        }
         
         return cell
     }

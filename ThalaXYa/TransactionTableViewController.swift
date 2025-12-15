@@ -8,7 +8,9 @@
 import UIKit
 import CoreData
 
-class TransactionTableViewController: UITableViewController {
+class TransactionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var transactions: [NSManagedObject] = []
     var isAdmin: Bool = false
@@ -16,12 +18,20 @@ class TransactionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Transactions"
+        
+        if let tv = tableView {
+            tv.delegate = self
+            tv.dataSource = self
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadTransactions()
-        tableView.reloadData()
+        
+        if let tv = tableView {
+            tv.reloadData()
+        }
     }
     
     func loadTransactions() {
@@ -30,40 +40,46 @@ class TransactionTableViewController: UITableViewController {
         if isAdmin {
             transactions = manager.getAllTransactions()
         } else {
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                let context = appDelegate.persistentContainer.viewContext
-                let request = NSFetchRequest<NSManagedObject>(entityName: "User")
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+               let currentUser = appDelegate.currentUser {
                 
-                do {
-                    let users = try context.fetch(request)
-                    if let currentUser = users.first(where: { ($0.value(forKey: "role") as? String) == "buyer" }) {
-                        transactions = manager.getTransactionsForUser(user: currentUser)
-                    }
-                } catch {
-                    print("Error loading user")
-                }
+                appDelegate.persistentContainer.viewContext.refresh(currentUser, mergeChanges: true)
+                transactions = manager.getTransactionsForUser(user: currentUser)
+            } else {
+                transactions = []
             }
         }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transactions.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as? UITableViewCell else {
+            return UITableViewCell()
+        }
         
         let transaction = transactions[indexPath.row]
         let fishName = transaction.value(forKey: "fishName") as? String ?? "Unknown"
         let quantity = transaction.value(forKey: "quantity") as? Int16 ?? 0
         let totalPrice = transaction.value(forKey: "totalPrice") as? Double ?? 0.0
         
-        cell.textLabel?.text = "\(fishName) x\(quantity)"
-        cell.detailTextLabel?.text = String(format: "$%.2f", totalPrice)
+        if let textLabel = cell.textLabel {
+            textLabel.text = "\(fishName) x\(quantity)"
+        }
+        
+        if let detailTextLabel = cell.detailTextLabel {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.locale = Locale(identifier: "id_ID")
+            formatter.maximumFractionDigits = 0
+            detailTextLabel.text = formatter.string(from: NSNumber(value: totalPrice))
+        }
         
         return cell
     }
