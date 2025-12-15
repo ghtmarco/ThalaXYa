@@ -74,7 +74,7 @@ class FishDetailViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateLabel.text = "Posted: \(dateFormatter.string(from: Date()))"
-        if let desc = fish.value(forKey: "desc") as? String {
+        if let desc = fish.value(forKey: "description") as? String {
             descriptionLabel.text = desc
         } else {
             descriptionLabel.text = "Segar langsung dari nelayan. Kualitas terbaik untuk masakan anda."

@@ -68,12 +68,13 @@ class CoreDataManager {
         return true
     }
     
-    func createFish(name: String, weight: Double, price: Double, stock: Int, dateAdded: Date = Date(), imageData: Data?) -> Bool {
+    func createFish(name: String, weight: Double, price: Double, stock: Int, dateAdded: Date = Date(), imageData: Data?, description: String) -> Bool {
         let fish = NSEntityDescription.insertNewObject(forEntityName: "Fish", into: context)
         fish.setValue(UUID(), forKey: "id")
         fish.setValue(name, forKey: "name")
         fish.setValue(weight, forKey: "weight")
         fish.setValue(price, forKey: "price")
+        fish.setValue(description, forKey: "description")
         fish.setValue(stock, forKey: "stock")
         fish.setValue(dateAdded, forKey: "dateAdded")
         
@@ -94,9 +95,10 @@ class CoreDataManager {
         }
     }
     
-    func updateFish(fish: NSManagedObject, name: String, weight: Double, price: Double, stock: Int, imageData: Data?) -> Bool {
+    func updateFish(fish: NSManagedObject, name: String, weight: Double, price: Double, description: String, stock: Int, imageData: Data?) -> Bool {
         fish.setValue(name, forKey: "name")
         fish.setValue(weight, forKey: "weight")
+        fish.setValue(description, forKey: "description")
         fish.setValue(price, forKey: "price")
         fish.setValue(stock, forKey: "stock")
         

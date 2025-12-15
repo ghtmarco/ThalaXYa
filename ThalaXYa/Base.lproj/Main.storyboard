@@ -232,6 +232,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="UFN-aA-4jL"/>
                     <connections>
+                        <outlet property="descriptionTextField" destination="c8H-FQ-r0t" id="BRh-vq-XvP"/>
                         <outlet property="fishImageView" destination="64y-v5-Q05" id="SgZ-5t-R9H"/>
                         <outlet property="nameTextField" destination="91g-nD-QN1" id="bh3-RL-thW"/>
                         <outlet property="priceTextField" destination="IaA-64-tfY" id="8Df-qM-VI5"/>
