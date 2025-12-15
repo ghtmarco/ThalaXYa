@@ -18,6 +18,34 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
     
     var fishToEdit: NSManagedObject?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = fishToEdit == nil ? "Add Fish" : "Edit Fish"
+        
+        fishImageView.layer.cornerRadius = 10
+        fishImageView.layer.borderWidth = 1
+        fishImageView.layer.borderColor = UIColor.lightGray.cgColor
+        fishImageView.clipsToBounds = true
+        
+        if let fish = fishToEdit {
+            nameTextField.text = fish.value(forKey: "name") as? String
+            if let weight = fish.value(forKey: "weight") as? Double {
+                weightTextField.text = String(weight)
+            }
+            if let price = fish.value(forKey: "price") as? Double {
+                priceTextField.text = String(price)
+            }
+            if let stock = fish.value(forKey: "stock") as? Int {
+                stockTextField.text = String(stock)
+            } else {
+                stockTextField.text = "0"
+            }
+            if let imageData = fish.value(forKey: "imageData") as? Data {
+                fishImageView.image = UIImage(data: imageData)
+            }
+        }
+    }
+    
     @IBAction func uploadImageTapped(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -40,88 +68,43 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
             showAlert("Fish name cannot be empty")
             return
         }
-        
         guard let weightText = weightTextField.text, let weight = Double(weightText), weight > 0 else {
             showAlert("Please enter a valid weight")
             return
         }
-        
         guard let priceText = priceTextField.text, let price = Double(priceText), price > 0 else {
             showAlert("Please enter a valid price")
             return
         }
-        
         guard let stockText = stockTextField.text, let stock = Int(stockText), stock >= 0 else {
-            showAlert("Please enter a valid stock amount")
+            showAlert("Please enter a valid stock")
             return
         }
         
-        // Kompresi gambar agar tidak terlalu berat di database
-        let imageData = fishImageView.image?.jpegData(compressionQuality: 0.5)
+        let imageData = fishImageView.image?.jpegData(compressionQuality: 0.8)
         let manager = CoreDataManager.shared
         
-        // LOGIKA SAVE / UPDATE
         if let fish = fishToEdit {
-            // Mode EDIT
             if manager.updateFish(fish: fish, name: name, weight: weight, price: price, stock: stock, imageData: imageData) {
-                // PENTING: Gunakan dismiss karena halaman ini dipanggil pakai 'present'
-                dismiss(animated: true, completion: nil)
+                navigationController?.popViewController(animated: true)
             } else {
                 showAlert("Failed to update fish")
             }
         } else {
-            // Mode ADD
             if manager.createFish(name: name, weight: weight, price: price, stock: stock, imageData: imageData) {
-                // PENTING: Gunakan dismiss karena halaman ini dipanggil pakai 'present'
-                dismiss(animated: true, completion: nil)
+                navigationController?.popViewController(animated: true)
             } else {
                 showAlert("Failed to add fish")
             }
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = fishToEdit == nil ? "Add Fish" : "Edit Fish"
-        
-        setupImageView()
-        
-        guard nameTextField != nil, weightTextField != nil, priceTextField != nil, stockTextField != nil, fishImageView != nil else {
-            print("⚠️ One or more outlets are not connected in the storyboard for AddEditFishViewController")
-            return
-        }
-        
-        if let fish = fishToEdit {
-            nameTextField.text = fish.value(forKey: "name") as? String
-            
-            if let weight = fish.value(forKey: "weight") as? Double {
-                weightTextField.text = String(weight)
-            }
-            if let price = fish.value(forKey: "price") as? Double {
-                priceTextField.text = String(price)
-            }
-            if let stock = fish.value(forKey: "stock") as? Int {
-                stockTextField.text = String(stock)
-            } else {
-                stockTextField.text = "0"
-            }
-            
-            if let imageData = fish.value(forKey: "imageData") as? Data {
-                fishImageView.image = UIImage(data: imageData)
-            }
-        }
-    }
-    
-    func setupImageView() {
-        fishImageView.layer.cornerRadius = 10
-        fishImageView.layer.borderWidth = 1
-        fishImageView.layer.borderColor = UIColor.lightGray.cgColor
-        fishImageView.clipsToBounds = true
-        fishImageView.contentMode = .scaleAspectFill // Agar gambar rapi
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }

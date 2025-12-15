@@ -40,7 +40,6 @@ class CoreDataManager {
             let results = try context.fetch(request)
             return !results.isEmpty
         } catch {
-            print("Error checking user: \(error)")
             return false
         }
     }
@@ -53,7 +52,6 @@ class CoreDataManager {
             let results = try context.fetch(request)
             return results.first
         } catch {
-            print("Error logging in: \(error)")
             return nil
         }
     }
@@ -64,7 +62,6 @@ class CoreDataManager {
                 try context.save()
                 return true
             } catch {
-                print("Error saving context: \(error)")
                 return false
             }
         }
@@ -77,9 +74,7 @@ class CoreDataManager {
         fish.setValue(name, forKey: "name")
         fish.setValue(weight, forKey: "weight")
         fish.setValue(price, forKey: "price")
-        
         fish.setValue(stock, forKey: "stock")
-        
         fish.setValue(dateAdded, forKey: "dateAdded")
         
         if let data = imageData {
@@ -95,7 +90,6 @@ class CoreDataManager {
         do {
             return try context.fetch(request)
         } catch {
-            print("Error fetching fish: \(error)")
             return []
         }
     }
@@ -104,9 +98,7 @@ class CoreDataManager {
         fish.setValue(name, forKey: "name")
         fish.setValue(weight, forKey: "weight")
         fish.setValue(price, forKey: "price")
-        
         fish.setValue(stock, forKey: "stock")
-        
         fish.setValue(Date(), forKey: "dateAdded")
         
         if let data = imageData {
@@ -142,7 +134,6 @@ class CoreDataManager {
         do {
             return try context.fetch(request)
         } catch {
-            print("Error fetching transactions: \(error)")
             return []
         }
     }
@@ -155,7 +146,6 @@ class CoreDataManager {
         do {
             return try context.fetch(request)
         } catch {
-            print("Error fetching user transactions: \(error)")
             return []
         }
     }
@@ -163,5 +153,34 @@ class CoreDataManager {
     func updateUserBalance(user: NSManagedObject, newBalance: Double) -> Bool {
         user.setValue(newBalance, forKey: "balance")
         return saveContext()
+    }
+    
+    func countAllFish() -> Int {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Fish")
+        do {
+            return try context.count(for: request)
+        } catch {
+            return 0
+        }
+    }
+
+    func countFishSoldToday() -> Int {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Transaction")
+        let calendar = Calendar.current
+        let now = Date()
+        let startOfDay = calendar.startOfDay(for: now)
+        guard let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) else { return 0 }
+        request.predicate = NSPredicate(format: "transactionDate >= %@ AND transactionDate < %@", startOfDay as NSDate, endOfDay as NSDate)
+        
+        do {
+            let transactions = try context.fetch(request)
+            let totalSold = transactions.reduce(0) { total, transaction in
+                let qty = transaction.value(forKey: "quantity") as? Int16 ?? 0
+                return total + Int(qty)
+            }
+            return totalSold
+        } catch {
+            return 0
+        }
     }
 }
