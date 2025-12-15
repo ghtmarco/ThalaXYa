@@ -22,8 +22,8 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
             
             if let fish = fishToEdit {
                 nameTextField.text = fish.value(forKey: "name") as? String
-                if let descText = fish.value(forKey: "desc") as? String {
-                    descriptionTextField.text = descText
+                if let desc = fish.value(forKey: "desc") as? String {
+                    descriptionTextField.text = desc
                 }
                 
                 if let weight = fish.value(forKey: "weight") as? Double {
@@ -78,7 +78,6 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
                 return
             }
             
-            // PERBAIKAN 2: Ambil teks deskripsi dari TextField
             let descriptionValue = descriptionTextField.text ?? ""
             
             let imageData = fishImageView.image?.jpegData(compressionQuality: 0.8)
@@ -86,14 +85,10 @@ class AddEditFishViewController: UIViewController, UIImagePickerControllerDelega
             
             var success = false
             
-            // Pastikan CoreDataManager kamu method updateFish dan createFish
-            // sudah menerima parameter label 'description' atau 'desc' sesuai codingan CoreData kamu.
-            
             if let fish = fishToEdit {
-                // Gunakan variabel 'descriptionValue' yang baru kita buat di atas
-                success = manager.updateFish(fish: fish, name: name, weight: weight, price: price, description: description, stock: stock, imageData: imageData)
+                success = manager.updateFish(fish: fish, name: name, weight: weight, price: price, description: descriptionValue, stock: stock, imageData: imageData)
             } else {
-                success = manager.createFish(name: name, weight: weight, price: price, stock: stock, imageData: imageData, description: description)
+                success = manager.createFish(name: name, weight: weight, price: price, stock: stock, imageData: imageData, description: descriptionValue)
             }
             
             if success {

@@ -74,7 +74,7 @@ class CoreDataManager {
         fish.setValue(name, forKey: "name")
         fish.setValue(weight, forKey: "weight")
         fish.setValue(price, forKey: "price")
-        fish.setValue(description, forKey: "description")
+        fish.setValue(description, forKey: "desc")
         fish.setValue(stock, forKey: "stock")
         fish.setValue(dateAdded, forKey: "dateAdded")
         
@@ -98,7 +98,7 @@ class CoreDataManager {
     func updateFish(fish: NSManagedObject, name: String, weight: Double, price: Double, description: String, stock: Int, imageData: Data?) -> Bool {
         fish.setValue(name, forKey: "name")
         fish.setValue(weight, forKey: "weight")
-        fish.setValue(description, forKey: "description")
+        fish.setValue(description, forKey: "desc")
         fish.setValue(price, forKey: "price")
         fish.setValue(stock, forKey: "stock")
         
