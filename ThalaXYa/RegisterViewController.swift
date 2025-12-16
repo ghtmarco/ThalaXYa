@@ -65,6 +65,37 @@ class RegisterViewController: UIViewController {
         loginLabel.isUserInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(loginLabelTapped))
         loginLabel.addGestureRecognizer(tap)
+        
+        if let emailField = emailTextField {
+            emailField.backgroundColor = .secondarySystemBackground
+            emailField.layer.cornerRadius = 8
+            emailField.layer.borderWidth = 1
+            emailField.layer.borderColor = UIColor.separator.cgColor
+            emailField.placeholder = "Email Address"
+            emailField.keyboardType = .emailAddress
+            emailField.autocapitalizationType = .none
+            emailField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        }
+        
+        if let nameField = nameTextField {
+            nameField.backgroundColor = .secondarySystemBackground
+            nameField.layer.cornerRadius = 8
+            nameField.layer.borderWidth = 1
+            nameField.layer.borderColor = UIColor.separator.cgColor
+            nameField.placeholder = "Name"
+            nameField.autocapitalizationType = .none
+            nameField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        }
+        
+        if let passwordField = passwordTextField {
+            passwordField.backgroundColor = .secondarySystemBackground
+            passwordField.layer.cornerRadius = 8
+            passwordField.layer.borderWidth = 1
+            passwordField.layer.borderColor = UIColor.separator.cgColor
+            passwordField.placeholder = "Password"
+            passwordField.isSecureTextEntry = true
+            passwordField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        }
     }
     
     @objc func loginLabelTapped() {

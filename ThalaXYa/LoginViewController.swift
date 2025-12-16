@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
     }
 
     func setupUI() {
-        view.backgroundColor = .systemBackground
+
 
         if let emailField = emailTextField {
             emailField.backgroundColor = .secondarySystemBackground
@@ -85,13 +85,6 @@ class LoginViewController: UIViewController {
             passwordField.placeholder = "Password"
             passwordField.isSecureTextEntry = true
             passwordField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        }
-
-        if let registerLbl = registerLabel {
-            registerLbl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-            registerLbl.textColor = .systemBlue
-            registerLbl.text = "Don't have an account? Register"
-            registerLbl.textAlignment = .center
         }
     }
     

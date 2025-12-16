@@ -120,44 +120,8 @@ class BuyerHomeViewController: UIViewController, UICollectionViewDelegate, UICol
             if let navigationController = self.navigationController {
                 navigationController.pushViewController(detailVC, animated: true)
             } else {
-                detailVC.modalPresentationStyle = .pageSheet
+                detailVC.modalPresentationStyle = .fullScreen
                 present(detailVC, animated: true)
-            }
-        }
-    }
-    
-    @IBAction func transactionButtonTapped(_ sender: Any) {
-         
-    }
-    
-    @IBAction func logoutButtonTapped(_ sender: Any) {
-        let alert = UIAlertController(
-            title: "Logout",
-            message: "Are you sure you want to logout?",
-            preferredStyle: .alert
-        )
-
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Logout", style: .destructive) { _ in
-            self.performLogout()
-        })
-
-        present(alert, animated: true)
-    }
-    
-    func performLogout() {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = windowScene.windows.first {
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                appDelegate.currentUser = nil
-            }
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromLeft, animations: {
-                    window.rootViewController = loginVC
-                }, completion: nil)
-                window.makeKeyAndVisible()
             }
         }
     }
