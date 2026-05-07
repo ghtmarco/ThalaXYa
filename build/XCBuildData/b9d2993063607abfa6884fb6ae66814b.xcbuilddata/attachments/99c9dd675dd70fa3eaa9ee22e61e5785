@@ -1,0 +1,126 @@
+{
+  "" : {
+    "const-values" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ThalaXYa-primary.swiftconstvalues",
+    "dependencies" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ThalaXYa-primary.d",
+    "diagnostics" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ThalaXYa-primary.dia",
+    "emit-module-dependencies" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ThalaXYa-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ThalaXYa-primary-emit-module.dia",
+    "pch" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ThalaXYa-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ThalaXYa-primary.swiftdeps"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/Fish+CoreDataClass.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Fish+CoreDataClass.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Fish+CoreDataClass.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Fish+CoreDataClass.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/Fish+CoreDataProperties.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Fish+CoreDataProperties.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Fish+CoreDataProperties.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Fish+CoreDataProperties.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/AddEditFishViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AddEditFishViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AddEditFishViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AddEditFishViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/AdminFishCell.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AdminFishCell.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AdminFishCell.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AdminFishCell.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/AdminHomeViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AdminHomeViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AdminHomeViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AdminHomeViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/AppDelegate.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/AppDelegate.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/BuyerFishCell.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/BuyerFishCell.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/BuyerFishCell.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/BuyerFishCell.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/BuyerHomeViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/BuyerHomeViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/BuyerHomeViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/BuyerHomeViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/CoreDataManager.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/CoreDataManager.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/CoreDataManager.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/CoreDataManager.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/FishDetailViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/FishDetailViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/FishDetailViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/FishDetailViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/FishListTableViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/FishListTableViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/FishListTableViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/FishListTableViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/LoginViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/LoginViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/LoginViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/LoginViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/RegisterViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/RegisterViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/RegisterViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/RegisterViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/SceneDelegate.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/SceneDelegate.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/TopUpViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/TopUpViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/TopUpViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/TopUpViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/TransactionTableViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/TransactionTableViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/TransactionTableViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/TransactionTableViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/TransactionViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/TransactionViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/TransactionViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/TransactionViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/ThalaXYa/ViewController.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ViewController.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ViewController.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/ViewController.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/Transaction+CoreDataClass.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Transaction+CoreDataClass.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Transaction+CoreDataClass.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Transaction+CoreDataClass.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/Transaction+CoreDataProperties.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Transaction+CoreDataProperties.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Transaction+CoreDataProperties.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/Transaction+CoreDataProperties.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/User+CoreDataClass.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/User+CoreDataClass.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/User+CoreDataClass.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/User+CoreDataClass.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/User+CoreDataProperties.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/User+CoreDataProperties.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/User+CoreDataProperties.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/User+CoreDataProperties.o"
+  },
+  "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/hush/Documents/Swift/ThalaXYa/build/ThalaXYa.build/Release-iphoneos/ThalaXYa.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}

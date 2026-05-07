@@ -71,13 +71,19 @@ class CoreDataManager {
         return true
     }
     
-    func createFish(name: String, weight: Double, price: Double, dateAdded: Date = Date()) -> Bool {
+    func createFish(name: String, weight: Double, price: Double, stock: Int, imageData: Data?, description: String, dateAdded: Date = Date()) -> Bool {
         let fish = NSEntityDescription.insertNewObject(forEntityName: "Fish", into: context)
         fish.setValue(UUID(), forKey: "id")
         fish.setValue(name, forKey: "name")
         fish.setValue(weight, forKey: "weight")
         fish.setValue(price, forKey: "price")
+        fish.setValue(stock, forKey: "stock")
+        fish.setValue(description, forKey: "desc")
         fish.setValue(dateAdded, forKey: "dateAdded")
+        
+        if let data = imageData {
+            fish.setValue(data, forKey: "imageData")
+        }
         
         return saveContext()
     }
@@ -93,10 +99,16 @@ class CoreDataManager {
         }
     }
     
-    func updateFish(fish: NSManagedObject, name: String, weight: Double, price: Double) -> Bool {
+    func updateFish(fish: NSManagedObject, name: String, weight: Double, price: Double, description: String, stock: Int, imageData: Data?) -> Bool {
         fish.setValue(name, forKey: "name")
         fish.setValue(weight, forKey: "weight")
         fish.setValue(price, forKey: "price")
+        fish.setValue(description, forKey: "desc")
+        fish.setValue(stock, forKey: "stock")
+        
+        if let data = imageData {
+            fish.setValue(data, forKey: "imageData")
+        }
         
         return saveContext()
     }
