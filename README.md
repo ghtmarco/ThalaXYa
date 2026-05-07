@@ -1,87 +1,53 @@
-# ThalaXYa
+<div align="center">
+  <img src="ThalaXYa/Assets.xcassets/Logo%20Icon.imageset/logo_baru-removebg-preview.png" alt="ThalaXYa Logo" width="200" />
+</div>
 
-A fish market management iOS application built with Swift and Core Data.
+# ThalaXYa 🐟
 
-## Overview
+A fish market management iOS application built natively using Swift and Core Data. 
 
-ThalaXYa is an iOS application designed for fish market operations. It provides user authentication, inventory management, and transaction processing capabilities for both administrators and buyers.
+**Note:** This is a group project developed to fulfill the requirements for the **MOBI6009001 - LAB** course at **Binus University**.
+
+## What is this?
+ThalaXYa is an iOS app built to handle fish market operations. We wanted to make something that works for both administrators (who manage the stock) and regular buyers (who buy the fish). It covers everything from logging in to keeping track of the inventory and handling the actual transactions.
 
 ## Features
+- **Account System:** Register and log in securely.
+- **Roles:** Separate views and controls for Admins and Buyers.
+- **Inventory Management:** Admins can add, edit, or delete fish stocks.
+- **Wallet/Balance:** Users can top-up their balance to buy things.
+- **Transactions:** Keep track of who bought what and when.
+- **Native UI:** Clean table views built with UIKit.
 
-- User registration and authentication
-- Role-based access control (Admin/Buyer)
-- Fish inventory management (CRUD operations)
-- User balance and top-up system
-- Transaction history tracking
-- Responsive table view interfaces
+## Tech Stack
+- **Language:** Swift 5
+- **Framework:** UIKit
+- **Database:** Core Data
+- **Architecture:** MVC
+- **Target:** iOS 14.0+
 
-## Technical Stack
+## Screenshots
+Here's a quick look at the app in action:
 
-- **Language**: Swift 5
-- **Framework**: UIKit
-- **Database**: Core Data
-- **Architecture**: MVC
-- **Platform**: iOS 14.0+
+| Login | User Home | Buying Fish |
+|-------|-----------|-------------|
+| <img src="Screenshot/LoginScreen.png" width="200"/> | <img src="Screenshot/HomeScreenUser.png" width="200"/> | <img src="Screenshot/BuyingFishScreen.png" width="200"/> |
 
-## Project Structure
+| Admin Home | Add/Edit Fish | Transactions |
+|------------|---------------|--------------|
+| <img src="Screenshot/AdminHomeScreen.png" width="200"/> | <img src="Screenshot/AdminEditFish.png" width="200"/> | <img src="Screenshot/TransactionHistoryUser.png" width="200"/> |
 
-```
-ThalaXYa/
-├── AppDelegate.swift              # App lifecycle management
-├── SceneDelegate.swift            # Scene configuration
-├── CoreDataManager.swift          # Core Data operations
-├── LoginViewController.swift      # Authentication interface
-├── FishListTableViewController.swift    # Fish inventory management
-├── AddEditFishViewController.swift      # Fish CRUD operations
-├── AdminHomeViewController.swift        # Admin dashboard
-├── BuyerHomeViewController.swift        # Buyer interface
-├── TransactionTableViewController.swift # Transaction history
-└── TopUpViewController.swift            # Balance management
-```
+## Getting Started
+If you want to run this project locally:
 
-## Installation
-
-1. Clone the repository
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/ghtmarco/ThalaXYa.git
    ```
-   git clone https://github.com/your-username/ThalaXYa.git
-   ```
+2. Open `ThalaXYa.xcodeproj` in Xcode.
+3. Hit `Cmd + R` to build and run it on a simulator.
 
-2. Open `ThalaXYa.xcodeproj` in Xcode
-
-3. Build and run the project (Cmd + R)
-
-## Requirements
-
-- Xcode 12.0+
-- iOS 14.0+
-- Swift 5.0+
-
-## Core Data Model
-
-The application uses three main entities:
-- **User**: Authentication and role management
-- **Fish**: Inventory items with name, weight, price, and date
-- **Transaction**: Purchase and payment records
-
-## Usage
-
-1. Launch the app and register/login
-2. Navigate to role-specific dashboard
-3. Manage fish inventory (Admin) or browse/purchase (Buyer)
-4. View transaction history and manage account balance
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+*Requires Xcode 12+ and iOS 14+.*
 
 ## License
-
 MIT License
-
-## Author
-
-Created by Hush (September 2025)
